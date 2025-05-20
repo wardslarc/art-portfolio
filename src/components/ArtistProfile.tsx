@@ -29,11 +29,11 @@ interface ArtistProfileProps {
 }
 
 const ArtistProfile = ({
-  name = "Carls Dale Escalo",
-  bio = "Digital illustrator ",
-  avatarUrl = "https://api.dicebear.com/7.x/avataaars/svg?seed=artist",
+  name = "Carls Escalo",
+  bio = "Digital illustrator and concept artist with over 8 years of experience creating vibrant, imaginative worlds. Specializing in character design and environmental concept art for games and animation.",
+  avatarUrl = "/images/profile.png",
   socialLinks = {
-    instagram: "https://instagram.com/janeartista",
+    instagram: "https://instagram.com/daleonigiri",
     twitter: "https://twitter.com/janeartista",
     linkedin: "https://linkedin.com/in/janeartista",
     email: "jane@artistadigital.com",
@@ -48,7 +48,7 @@ const ArtistProfile = ({
   const [formError, setFormError] = useState(false);
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormState((prev) => ({
@@ -57,19 +57,38 @@ const ArtistProfile = ({
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Basic validation
+
     if (!formState.name || !formState.email || !formState.message) {
       setFormError(true);
       return;
     }
 
-    // In a real app, you would send the form data to a server here
-    console.log("Form submitted:", formState);
-    setFormSubmitted(true);
-    setFormError(false);
-    setFormState({ name: "", email: "", message: "" });
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbw1qEQ_pGll5Z3XZSZfO8xm1E6IjtKk4XCh54hzrDLrfl0eH6YtexuIaEQreW45jQqang/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            name: formState.name,
+            email: formState.email,
+            message: formState.message,
+          }).toString(),
+        }
+      );
+
+      setFormSubmitted(true);
+      setFormError(false);
+      setFormState({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Submission failed:", error);
+      setFormError(true);
+    }
   };
 
   return (

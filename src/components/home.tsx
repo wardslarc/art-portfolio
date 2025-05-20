@@ -19,7 +19,7 @@ const Home = () => {
       <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <div className="flex items-center">
-            <h1 className="text-xl font-bold">Artist Portfolio</h1>
+            <h1 className="text-xl font-bold">Carls Dale Escalo</h1>
           </div>
 
           <nav className="hidden md:block">
@@ -100,7 +100,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="font-semibold text-lg mb-3">Artist Portfolio</h3>
+              <h3 className="font-semibold text-lg mb-3">Carls Dale Escalo</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Showcasing creative digital artwork and illustrations from
                 around the world.
@@ -223,12 +223,11 @@ const Home = () => {
 
             <div>
               <h3 className="font-semibold text-lg mb-3">
-                Connect with Supabase
+                Connect with Firebase
               </h3>
               <p className="text-sm text-muted-foreground mb-4">
-                This portfolio uses Supabase for image storage and database
-                functionality. Connect your Supabase project to enable artwork
-                uploads and management.
+                This portfolio uses firebase for image storage and database
+                functionality. The comments and recommendation is connected to google sheets.
               </p>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -249,7 +248,7 @@ const Home = () => {
 
           <div className="border-t border-border mt-8 pt-6 text-center text-sm text-muted-foreground">
             <p>
-              © {new Date().getFullYear()} Artist Portfolio. All rights
+              © {new Date().getFullYear()} Carls Dale Escalo. All rights
               reserved.
             </p>
           </div>
